@@ -33,6 +33,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh "kubectl"
             }
         }
         stage('Deploy') {
