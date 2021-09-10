@@ -2,6 +2,16 @@ pipeline {
     agent any
 
     stages {
+        stage('Log Ant version info') {
+          steps {
+            sh 'ant -version'
+          }
+        }
+        stage('GitHub Jenkins Ant Build') {
+          steps {
+            sh 'ant dist'
+          }
+        }        
         stage('Build and Push Docker Image...') {
             steps {
                 script {
@@ -16,7 +26,7 @@ pipeline {
                       
                     }
                     /* Remove docker image*/
-                    sh "docker rmi -f my-image:${env.BUILD_ID}"
+                    sh 'docker rmi -f my-image:${env.BUILD_ID}'
                }
             } 
         }
