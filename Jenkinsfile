@@ -26,7 +26,7 @@ pipeline {
                       
                     }
                     /* Remove docker image*/
-                    sh 'docker rmi -f my-image:${env.BUILD_ID}'
+                    sh "docker rmi -f my-image:${env.BUILD_ID}"
                }
             } 
         }
