@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                   // CUSTOM REGISTRY
-                    docker.withRegistry('https://registry.example.com') {
+                    docker.withRegistry('https://myregistry.images.io:30000') {
                       
                         /* Build the container image */            
                         def dockerImage = docker.build("my-image:${env.BUILD_ID}")
