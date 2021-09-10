@@ -1,2 +1,2 @@
 FROM alpine:latest
-COPY webapps.war /usr/local/tomcat/webapps/ROOT.war
+COPY webapp.war /usr/local/tomcat/webapps/ROOT.war
