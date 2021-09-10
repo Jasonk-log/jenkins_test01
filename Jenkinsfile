@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Log Ant version info') {
           steps {
-            sh 'ant -version'
+            sh '/var/jenkins_home/tools/hudson.tasks.Ant_AntInstallation/Ant_1.10.11/bin/ant -version'
           }
         }
         stage('GitHub Jenkins Ant Build') {
           steps {
-            sh 'ant dist'
+            sh '/var/jenkins_home/tools/hudson.tasks.Ant_AntInstallation/Ant_1.10.11/bin/ant dist'
           }
         }        
         stage('Build and Push Docker Image...') {
