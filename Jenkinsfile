@@ -33,7 +33,7 @@ pipeline {
         stage('Test kubectl') {
             steps {
                 echo 'Testing kubectl..'
-                sh "kubectl --kubeconfig /var/jenkins_home/k8s/config get pod -A"
+                sh "/var/jenkins_home/k8s/kubectl --kubeconfig /var/jenkins_home/k8s/config get pod -A"
             }
         }
         stage('Deploy') {
