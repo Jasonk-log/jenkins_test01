@@ -33,12 +33,13 @@ pipeline {
         stage('Test kubectl') {
             steps {
                 echo 'Testing kubectl..'
-                sh "kubectl patch deployment my-test -n test -p'{"spec":{"template":{"spec":{"containers":[{"name":"my-container","image":"myregistry.images.io:30000/my-image:${env.BUILD_ID}"}]}}}}'"
+                sh "/var/jenkins_home/k8s/kubectl --kubeconfig /var/jenkins_home/k8s/config get pod -A"
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh "/var/jenkins_home/k8s/kubectl --kubeconfig /var/jenkins_home/k8s/config patch deployment my-test -n test -p'{"spec":{"template":{"spec":{"containers":[{"name":"my-container","image":"myregistry.images.io:30000/my-image:${env.BUILD_ID}"}]}}}}'"
             }
         }
     }
