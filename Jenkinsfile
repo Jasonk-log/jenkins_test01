@@ -30,10 +30,10 @@ pipeline {
                }
             } 
         }
-        stage('Test') {
+        stage('Test kubectl') {
             steps {
-                echo 'Testing..'
-                sh "kubectl"
+                echo 'Testing kubectl..'
+                sh "kubectl --kubeconfig /nfs/jenkins/kubeconfig/config get pod -A"
             }
         }
         stage('Deploy') {
