@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-test
+spec:
+  strategy:
+    type: RollingUpdate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-test
+  template:
+    metadata:
+      name: my-test
+      labels:
+        app: my-test
+    spec:
+      containers:
+      - name: my-container
+        image: myregistry.images.io:30000/my-image:16
+        ports:
+        - containerPort: 80
