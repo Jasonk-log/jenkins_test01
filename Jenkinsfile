@@ -39,9 +39,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh """
-                   /var/jenkins_home/k8s/kubectl --kubeconfig /var/jenkins_home/k8s/config patch deployment my-test -n test -p'{"spec":{"template":{"spec":{"containers":[{"name":"my-container","image":"myregistry.images.io:30000/my-image:${env.BUILD_ID}"}]}}}}'
-                   """
+                script {
+                    kubernetesDeploy(configs: "my-test.yaml", kubeconfigId: "kube-config")
+                }
             }
         }
     }
