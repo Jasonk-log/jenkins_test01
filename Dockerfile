@@ -1,3 +1,3 @@
 FROM alpine:latest
-COPY webapp.war /usr/local/tomcat/webapps/ROOT.war
+COPY webapp.war /usr/ROOT.war
 CMD ["sh", "-c", "test -f /dev/null"]
