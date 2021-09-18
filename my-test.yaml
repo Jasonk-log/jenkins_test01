@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: myregistry.images.io:30000/my-image:16
+        image: myregistry.images.io:30000/my-image:1
         ports:
         - containerPort: 80
